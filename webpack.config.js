@@ -51,7 +51,8 @@ module.exports = {
       './app/components/orphanage',
       './app/api',
       './app/actions',
-      './app/reducers'
+      './app/reducers',
+      './app/util'
     ],
     alias: {
       applicationStyles: 'app/styles/app.scss',

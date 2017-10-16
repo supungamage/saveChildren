@@ -9,3 +9,12 @@ export var orphanageReducer = (state = [], action) => {
       return state;
   }
 };
+
+export var orphanageSearchReducer = (state = '', action) => {
+  switch (action.type) {
+    case 'SET_ORPHANAGE_SEARCH':
+      return action.orphanageSearch;
+    default:
+      return state;
+  }
+};

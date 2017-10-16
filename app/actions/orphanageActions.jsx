@@ -16,3 +16,10 @@ export var startLoadOrphanages = () => {
     });
   };
 };
+
+export var setOrphanageSearch = (orphanageSearch) => {
+  return {
+    type: 'SET_ORPHANAGE_SEARCH',
+    orphanageSearch
+  };
+};

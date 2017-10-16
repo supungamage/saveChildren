@@ -1,11 +1,12 @@
 import * as redux from 'redux';
 import thunk from 'redux-thunk';
 
-import {orphanageReducer} from 'orphanageReducer';
+import {orphanageReducer, orphanageSearchReducer} from 'orphanageReducer';
 
 export var configure = (initialState = {}) => {
   var reducer = redux.combineReducers({
-    orphanages: orphanageReducer
+    orphanages: orphanageReducer,
+    orphanageSearch: orphanageSearchReducer
   });
 
   var store = redux.createStore(reducer, initialState, redux.compose(

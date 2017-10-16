@@ -1,15 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import OrphanageUtil from 'OrphanageUtil';
 import OrphanageRecord from 'OrphanageRecord';
 
 export class OrphanageList extends React.Component {
   render() {
     var renderOrphanages = () => {
-      var {orphanages} = this.props;
-      return orphanages.map((orphanage) => {
+      var {orphanages, orphanageSearch} = this.props;
+      var filteredOrphanages = OrphanageUtil.filterOrphanages(orphanages, {name: orphanageSearch});
+      return filteredOrphanages.map((orphanage) => {
         return(
-          <OrphanageRecord key={orphanage._id} />
+          <OrphanageRecord key={orphanage._id} orphanage={orphanage}/>
         );
       });
     }
@@ -37,6 +39,7 @@ export class OrphanageList extends React.Component {
 
 export default connect((state) => {
   return {
-    orphanages: state.orphanages
+    orphanages: state.orphanages,
+    orphanageSearch: state.orphanageSearch
   };
 })(OrphanageList);
